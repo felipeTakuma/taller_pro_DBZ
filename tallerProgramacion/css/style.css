@@ -1,0 +1,71 @@
+
+/* esro se encarga de que html y body ocupen toda la altura */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fondo con back-gradiente que cubre toda la vista */
+body {
+  font-family: "Stalinist One", serif;
+  background-image: linear-gradient(to bottom, black, rgb(27, 34, 34) 82%, orange 100%);
+  background-repeat: no-repeat;
+  background-size: cover; /* Esto permite que el fondo se adapte al contenido */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header de la page centrado */
+header {
+  text-align: center;
+  color: #fff;
+}
+
+/* Contenedor principal que debe ocupar toda la vista */
+.planets-grid {
+  flex: 1; /* Esto hace que el contenedor se expanda y empuje el fondo hasta abajo */
+  padding: 2rem;
+}
+
+/* el contenedor Grid de planetas */
+.planets {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* las tarjetas de cada planeta */
+.card-planet {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.card-planet:hover {
+  transform: scale(1.05);
+}
+
+.card-planet img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card-planet h2 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+a{
+    text-decoration: none;
+
+}
+
+.card-planet p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}

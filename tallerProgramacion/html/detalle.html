@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalle del planeta</title>
+  <link rel="stylesheet" href="../css/styleDetalle.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="planet-detail-container">
+    <h1 id="planet-name"><img src="../img/cristal (1).png" alt=""> Cargando... <img src="../img/cristal (1).png" alt=""></h1>
+    <div class="planet-card">
+      <img id="planet-image" src="" alt="Imagen del planeta">
+      <div class="planet-info">
+        <p id="planet-description">Descripción del planeta</p>
+      </div>
+    </div>
+    <a href="planetas.html" class="back-button">← Volver a la lista</a>
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const planetId = params.get('id');
+
+    fetch(`https://dragonball-api.com/api/planets/${planetId}`)
+      .then(res => res.json())
+      .then(planet => {
+        document.getElementById('planet-name').textContent = planet.name;
+        document.getElementById('planet-image').src = planet.image;
+        document.getElementById('planet-description').textContent = planet.description;
+      });
+  </script>
+</body>
+</html>
